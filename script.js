@@ -7,28 +7,14 @@ $(document).ready(function() {
 });
   var images = document.querySelectorAll("img");
   images.forEach(function(image) {
-    // This way, we won't call the imageLoaded function immediately
-    // The function will be only called when the image's load event fires
+
     image.onload = function(e) {
-      // We can assume that the first argument passed to this function will be an Event object
-      // with information about the event that just happened
-      // Take a look in the console:
+
       imageLoaded(e.target)
     }
 
-    // I think the image onload isn't fired when the image is already cached
-    // Luckily if an image is loaded it has a "complete" property
-    // So we can call the function manually
     if (image.complete) imageLoaded(image)
 
-    // Another way to write this is
-    // image.addEventListener('load', imageLoaded)
-
-    // If we did this, imageLoaded would be called immediately
-    // image.onload = imageLoaded()
-
-    // Just like if we did
-    // console.log('stuff')
   })
 
   function imageLoaded(image) {
