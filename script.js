@@ -141,6 +141,7 @@ function switchGallery(nextGal, previousGal) {
   }, 550)
 }
 
+
 function switchButton(e) {
   console.log(e)
   var button = document.querySelector('.button.current');
